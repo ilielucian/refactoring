@@ -1,0 +1,2 @@
+1/ add method to print statement in HTML method
+2/ change the classification of the movies and charges and frequent renter points
