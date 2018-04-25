@@ -1,0 +1,19 @@
+1/ for html statement, we need to separate the whole logic from the display
+    - first of all some cleaning up of field types and names
+
+    - extract switch as method
+    - rename variables in extracted method
+    - move amount calculation to Rental
+    - replace thisAmount with query (optimize later)
+
+    - extract method for frequent renter points and move it to Rental
+    - extract methods for total amount and total frequent renter points
+
+    - now the statement method is free of logic, so we can add a new method for html statement, for the moment
+
+2/ for having an adaptable code to changes in classification of movies, we need to replace the switch with polymorphism
+    - move getCharge from Rental to Movie and pass days rented and delegate in Rental, to have less ripple effect (movie classification affects only movie)
+    - move getFrequentRenterPoints from Rental to Movie and pass days rented and delegate in Rental, for the same reason
+
+    - to make pricing changes flexible, we use the State Pattern, having a Price field in Movie, with Price as abstract class having implementations for
+        RegularPrice, NewReleasePrice and ChildrenPrice, with overridden behavior for methods getCharge and getFrequentRenterPoints; now Open/Closed is done
