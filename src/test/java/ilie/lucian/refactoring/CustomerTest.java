@@ -11,16 +11,16 @@ public class CustomerTest {
         Customer me = new Customer("Lucian");
 
         me.addRental(new Rental(
-                new Movie("Godfather 1", 0), 7
+                new Movie("Godfather 1", Movie.REGULAR), 7
         ));
         me.addRental(new Rental(
-                new Movie("Shawshank Redemption", 0), 7
+                new Movie("Shawshank Redemption", Movie.REGULAR), 7
         ));
         me.addRental(new Rental(
-                new Movie("Beauty and the beast", 2), 10
+                new Movie("Beauty and the beast", Movie.CHILDRENS), 10
         ));
         me.addRental(new Rental(
-                new Movie("Black Panther", 1), 3
+                new Movie("Black Panther", Movie.NEW_RELEASE), 3
         ));
 
         assertEquals(getExpectedStatement(), me.statement());
