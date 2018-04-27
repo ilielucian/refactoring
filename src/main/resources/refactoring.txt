@@ -17,3 +17,5 @@
 
     - to make pricing changes flexible, we use the State Pattern, having a Price field in Movie, with Price as abstract class having implementations for
         RegularPrice, NewReleasePrice and ChildrenPrice, with overridden behavior for methods getCharge and getFrequentRenterPoints; now Open/Closed is done
+
+    - remove switch from setter to set directly the Price, so getting rid of the coupling
