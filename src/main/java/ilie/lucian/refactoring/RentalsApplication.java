@@ -18,6 +18,6 @@ public class RentalsApplication {
                 new Movie("Black Panther", Movie.NEW_RELEASE), 3
         ));
 
-        System.out.println(me.statement());
+        System.out.println(me.getPrintedStatement());
     }
 }

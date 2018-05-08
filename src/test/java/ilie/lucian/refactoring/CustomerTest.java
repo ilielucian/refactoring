@@ -8,6 +8,19 @@ public class CustomerTest {
 
     @Test
     public void testStatement() throws Exception {
+        Customer me = getTestCustomer();
+
+        assertEquals(getExpectedStatement(), me.getPrintedStatement());
+    }
+
+    @Test
+    public void testHtmlStatement() {
+        Customer me = getTestCustomer();
+
+        assertEquals(getExpectedHtmlStatement(), me.getHtmlStatement());
+    }
+
+    private Customer getTestCustomer() {
         Customer me = new Customer("Lucian");
 
         me.addRental(new Rental(
@@ -22,8 +35,7 @@ public class CustomerTest {
         me.addRental(new Rental(
                 new Movie("Black Panther", Movie.NEW_RELEASE), 3
         ));
-
-        assertEquals(getExpectedStatement(), me.statement());
+        return me;
     }
 
     private static String getExpectedStatement() {
@@ -34,5 +46,15 @@ public class CustomerTest {
                 "\tBlack Panther\t9.0\n" +
                 "Amount owed is 40.0\n" +
                 "You earned 5 frequent renter points";
+    }
+
+    private static String getExpectedHtmlStatement() {
+        return "<H1>Rentals for <EM>Lucian</EM></H1><P>\n" +
+                "Godfather 1: 9.5<BR>\n" +
+                "Shawshank Redemption: 9.5<BR>\n" +
+                "Beauty and the beast: 12.0<BR>\n" +
+                "Black Panther: 9.0<BR>\n" +
+                "<P>You owe <EM>40.0</EM><P>\n" +
+                "On this rental you earned <EM>5</EM> frequent renter points<P>";
     }
 }
